@@ -5,9 +5,11 @@ Created on 2 Jan 2015
 
 @author: crystal
 '''
+
 import sys
 
 from PyQt4 import QtGui, QtCore
+from PyQt4.Qt import QPalette
 
 
 class CheckSum(QtGui.QWidget):
@@ -19,6 +21,14 @@ class CheckSum(QtGui.QWidget):
         
     def initUI(self):        
         
+        exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), '&Exit', self)        
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.setStatusTip('Exit application')
+        exitAction.triggered.connect(QtGui.qApp.quit)
+        
+        self.menubar = QtGui.QMenuBar()
+        fileMenu = self.menubar.addMenu('&File')
+        fileMenu.addAction(exitAction)
         
         self.stringLabel1 = QtGui.QLabel('First  string ')
         self.stringLabel2 = QtGui.QLabel('Second string')
@@ -34,22 +44,23 @@ class CheckSum(QtGui.QWidget):
         self.stringLineEdit2.setMaxLength(32)
         
         self.stringLineEdit3 = QtGui.QLineEdit()
-        
         self.button1 = QtGui.QPushButton('validate')
        
         grid = QtGui.QGridLayout()
         grid.setSpacing(10)
 
-        grid.addWidget(self.stringLabel1, 0, 0)
-        grid.addWidget(self.stringLineEdit1, 0, 1)
+        grid.addWidget(self.menubar, 0 , 0)
+        
+        grid.addWidget(self.stringLabel1, 1, 0)
+        grid.addWidget(self.stringLineEdit1, 1, 1)
 
-        grid.addWidget(self.stringLabel2, 1, 0)
-        grid.addWidget(self.stringLineEdit2, 1, 1)
+        grid.addWidget(self.stringLabel2, 2, 0)
+        grid.addWidget(self.stringLineEdit2, 2, 1)
         
-        grid.addWidget(self.stringLabel3, 2, 0)
-        grid.addWidget(self.stringLabel4, 2, 1)
+        grid.addWidget(self.stringLabel3, 3, 0)
+        grid.addWidget(self.stringLabel4, 3, 1)
         
-        grid.addWidget(self.button1, 3, 1)
+        grid.addWidget(self.button1, 4, 1)
         
         self.button1.clicked.connect(self.handleButton)
         
@@ -66,13 +77,15 @@ class CheckSum(QtGui.QWidget):
         text2 = self.stringLineEdit2.text()
                
         if text1 == text2:
-            result = "True"
+            result = "True - identical"
             
         else:
-            result = "False"
+            result = "False - NOT identical"
+           
            
         self.stringLabel4.setText(repr(result))
-         
+        
+          
    
     def center(self):
         

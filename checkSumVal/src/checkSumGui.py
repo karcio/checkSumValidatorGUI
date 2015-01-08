@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'checkSumGui.ui'
 #
-# Created: Thu Jan  8 01:14:57 2015
+# Created: Thu Jan  8 02:22:42 2015
 # by: PyQt5 UI code generator 5.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -50,6 +50,7 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         self.pushButton_2.clicked.connect(Form.close)
         QtCore.QMetaObject.connectSlotsByName(Form)
+
         self.pushButton.clicked.connect(self.validation_b)
 
 
@@ -66,10 +67,9 @@ class Ui_Form(object):
 
         self.label_4.setText(repr(result))
 
-
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Check Sum validator v 0.1"))
+        Form.setWindowTitle(_translate("Form", "Check Sum validator v 0.2"))
         self.label.setText(_translate("Form", "insert string"))
         self.label_2.setText(_translate("Form", "insert string"))
         self.label_3.setText(_translate("Form", "result"))

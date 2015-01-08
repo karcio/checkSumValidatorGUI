@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Check Sum validator v 0.1</string>
+   <string>Check Sum validator v 0.2</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">

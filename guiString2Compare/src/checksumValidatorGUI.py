@@ -21,15 +21,6 @@ class CheckSum(QtGui.QWidget):
         
     def initUI(self):        
         
-        exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), '&Exit', self)        
-        exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit application')
-        exitAction.triggered.connect(QtGui.qApp.quit)
-        
-        self.menubar = QtGui.QMenuBar()
-        fileMenu = self.menubar.addMenu('&File')
-        fileMenu.addAction(exitAction)
-        
         self.stringLabel1 = QtGui.QLabel('First  string ')
         self.stringLabel2 = QtGui.QLabel('Second string')
         self.stringLabel3 = QtGui.QLabel('Result')
